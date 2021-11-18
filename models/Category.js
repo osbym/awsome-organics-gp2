@@ -1,34 +1,26 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+'use strict';
 
-// create our User model
-class Category extends Model {}
-
-// create fields/columns for User model
-Category.init(
-  {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true
-    },
+module.exports = (sequelize, DataTypes) => {
+  const Category = sequelize.define('Category', {
     name: {
       type: DataTypes.STRING,
       allowNull: false
     },
     description: {
-        type: DataTypes.STRING,
-        allowNull: true
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
     }
-  },
-  {    
-    sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'category'
+  });
+  Category.associate = models => {
+    // associations can be defined here
+    Category.belongsTo(models.Product, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
   }
-);
-
-module.exports = Category;
+  return Category;
+}

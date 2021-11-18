@@ -1,3 +1,3 @@
-DROP DATABASE IF EXISTS project-two_db;
+DROP DATABASE IF EXISTS project_two_db;
 
-CREATE DATABASE project-two_db;
+CREATE DATABASE project_two_db;

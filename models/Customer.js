@@ -1,50 +1,37 @@
-const { Model, DataTypes } = require('sequelize');
-const bcrypt = require('bcrypt');
-const sequelize = require('../config/connection');
+'use strict';
 
-// create our User model
-class Customer extends Model {}
-
-// create fields/columns for User model
-Customer.init(
-  {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true
-    },
+module.exports = (sequelize, DataTypes) => {
+  const Customer = sequelize.define('Customer', {
     name: {
       type: DataTypes.STRING,
       allowNull: false
-    },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-      validate: {
-        isEmail: true
-      }
     },
     address: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [4]
+        len: [1]
       }
     },
     phone: {
-        type: DataTypes.STRING,
-        allowNull: true        
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isEmail();
+      }
     }
-  },
-  {    
-    sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'customer'
+  });
+  Customer.associate = models => {
+    // associations can be defined here
+    Customer.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
   }
-);
-
-module.exports = Customer;
+  return Customer;
+}

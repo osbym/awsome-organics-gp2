@@ -1,63 +1,44 @@
-const { Model, DataTypes } = require('sequelize');
-const bcrypt = require('bcrypt');
-const sequelize = require('../config/connection');
+'use strict';
+const bcrypt = require("bcrypt");
 
-// create our User model
-class User extends Model {
-  // set up method to run on instance data (per user) to check password
-  checkPassword(loginPw) {
-    return bcrypt.compareSync(loginPw, this.password);
-  }
-}
-
-// create fields/columns for User model
-User.init(
-  {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true
-    },
+module.exports = (sequelize, DataTypes) => {
+  const User = sequelize.define('User', {
     username: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      validate: {
+        len: [6]
+      }
     },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
       validate: {
         isEmail: true
       }
     },
+    // The password cannot be null
     password: {
       type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [4]
+      allowNull: false
+    }
+  }, {
+    // Hooks are automatic methods that run during various phases of the User Model lifecycle
+    // In this case, before a User is created, we will automatically hash their password
+    hooks: {
+      beforeCreate: (user, options) => {
+        user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
       }
     }
-  },
-  {
-    hooks: {
-      // set up beforeCreate lifecycle "hook" functionality
-      async beforeCreate(newUserData) {
-        newUserData.password = await bcrypt.hash(newUserData.password, 10);
-        return newUserData;
-      },
-
-      async beforeUpdate(updatedUserData) {
-        updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
-        return updatedUserData;
-      }
-    },
-    sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'user'
+  });
+  User.prototype.validPassword = function (password) {
+    return bcrypt.compareSync(password, this.password);
   }
-);
-
-module.exports = User;
+  // User.associate = models => {
+  //   // associations can be defined here
+  //   User.hasMany(models.Trip, {
+  //     onDelete: "cascade"
+  //   });
+  }
+  return User;
+};
