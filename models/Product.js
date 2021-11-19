@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
   });
   Product.associate = models => {
     // associations can be defined here
-    Product.belongsTo(models.Category, {
+    Product.hasMany(models.Category, {
       foreignKey: {
         allowNull: false
       }

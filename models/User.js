@@ -39,6 +39,6 @@ module.exports = (sequelize, DataTypes) => {
   //   User.hasMany(models.Trip, {
   //     onDelete: "cascade"
   //   });
-  }
+  
   return User;
-};
+}
