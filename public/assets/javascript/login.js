@@ -4,13 +4,16 @@
 
 //async function to handle signup
 async function signupFormHandler(event) {
+  //this is the event handler for the signup form
   event.preventDefault();
 
-  const username = document.querySelector("#username").value.trim();
-  const password = document.querySelector("#password").value.trim();
+  const username = document.querySelector("#grid-username").value.trim(); //get the username from the form
+  const password = document.querySelector("#grid-password").value.trim(); // get the password from the form
 
   if (username && password) {
+    // if both username and password are not empty strings then do the following
     const response = await fetch("/api/users", {
+      // fetch the api/users endpoint and pass in the username and password
       method: "post",
       body: JSON.stringify({
         username,
@@ -56,8 +59,8 @@ async function loginFormHandler(event) {
 }
 
 document
-  .querySelector("#signup-form")
+  .querySelector(".signup-form")
   .addEventListener("submit", signupFormHandler);
 document
-  .querySelector("#login-form")
+  .querySelector(".login-form")
   .addEventListener("submit", loginFormHandler);
