@@ -12,8 +12,8 @@
 </head>
 
 <body>
-
-  <div class="bg-green-700">
+  <!-- nav bar -->
+  <header class="bg-green-700">
     <div class="container mx-auto px-4">
       <nav class="flex items-center justify-between flex-wrap bg-green-800 p-6">
         <div class="flex items-center flex-shrink-0 text-white mr-6">
@@ -22,77 +22,89 @@
             <path
               d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z" />
           </svg>
-          <span class="font-semibold text-xl tracking-tight">AW-SOME</span>
+          <h1 class="font-semibold text-xl tracking-tight">AW-SOME</h1>
         </div>
 
         <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
           <div class="text-sm lg:flex-grow">
-            <a href="/" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-              Home
-            </a>
-            <a href="/products" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-              Products
-            </a>
-            <a href="/contact_me" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
-              Contact Me
-            </a>
+            <tr class="text-sm lg:flex-grow">
+              <td>
+                <a href="/" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                  Home
+                </a>
+              </td>
+              <td>
+                <a href="/products" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                  Products
+                </a>
+              </td>
+              <td>
+                <a href="/contact_me" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
+                  Contact Me
+                </a>
+              </td>
+            </tr>
           </div>
-
         </div>
-        <div class="flex items-center">
+        <button class="flex items-center">
           <a href="/login"
             class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Login</a>
-
-        </div>
+        </button>
       </nav>
     </div>
-  </div>
+  </header>
 
   <!--pictures of six different products that has 3 in a row then flexes to next line-->
-  <div class="container mx-auto px-4">
+  <main class="container mx-auto px-4">
     <div class="flex flex-wrap">
       <div class="w-full lg:w-1/3 p-3">
-        <div class="bg-white border-2 border-teal-500 rounded-lg shadow-lg p-4">
-          <img src="./assets/img/random.jpg" alt="organic natural homemade beeswax candle body scrub chapstic lip balm bundle price product1" class="w-full">
+        <article class="bg-white border-2 border-teal-500 rounded-lg shadow-lg p-4">
+          <img src="./assets/img/random.jpg"
+            alt="organic natural homemade beeswax candle and body scrub lip balm pure and clean: bundle products1"
+            class="w-full">
           <div class="text-center p-4">
-            <h3 class="text-xl font-semibold">Product 1</h3>
+            <h2 class="text-xl font-semibold">Product 1</h2>
 
             <a href="#" class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded" id="product1">
               Learn More
             </a>
           </div>
-        </div>
+        </article>
       </div>
       <div class="w-full lg:w-1/3 p-3">
-        <div class="bg-white border-2 border-teal-500 rounded-lg shadow-lg p-4">
-          <img src="./assets/img/random1.jpg" alt="organic natural homemade beeswax candle body scrub chapstic lip balm hand sanitizer bundle price product2" class="w-full">
+        <article class="bg-white border-2 border-teal-500 rounded-lg shadow-lg p-4">
+          <img src="./assets/img/random1.jpg"
+            alt="organic natural homemade beeswax candle body scrub chapstic lip balm hand sanitizer: bundle product2"
+            class="w-full">
           <div class="text-center p-4">
-            <h3 class="text-xl font-semibold">Product 2</h3>
-
+            <h2 class="text-xl font-semibold">Product 2</h2>
             <a href="#" class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded" id="product2">
               Learn More
             </a>
           </div>
-        </div>
+        </article>
       </div>
       <div class="w-full lg:w-1/3 p-3">
-        <div class="bg-white border-2 border-teal-500 rounded-lg shadow-lg p-4">
-          <img src="./assets/img/sanitizer.jpg" alt="organic natural homemade sanitizer product3" class="w-full">
+        <article class="bg-white border-2 border-teal-500 rounded-lg shadow-lg p-4">
+          <img src="./assets/img/sanitizer.jpg"
+            alt="organic natural  pure essential scented  homemade travel size hand sanitizer******* : product3" class="w-full">
           <div class="text-center p-4">
-            <h3 class="text-xl font-semibold">Product 3</h3>
+            <h2 class="text-xl font-semibold">Product 3</h2>
 
             <a href="#" class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded" id="product3">
               Learn More
             </a>
           </div>
-        </div>
+        </article>
       </div>
 
       <div class="w-full lg:w-1/3 p-3">
         <div class="bg-white border-2 border-teal-500 rounded-lg shadow-lg p-4">
-          <img src="./assets/img/scrub.jpg" alt="organic natural homemade body scrub product4" class="w-full">
+          <img src="./assets/img/scrub.jpg"
+            alt="organic natural homemade body scrub pure essential oil scent exfoliat for radiant skin: Product4"
+            class="w-full">
           <div class="text-center p-4">
-            <h3 class="text-xl font-semibold">Product 4</h3>
+            <h2 class="text-xl font-semibold">Product 4</h2>
 
             <a href="#" class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded" id="product4">
               Learn More
@@ -101,36 +113,40 @@
         </div>
       </div>
       <div class="w-full lg:w-1/3 p-3">
-        <div class="bg-white border-2 border-teal-500 rounded-lg shadow-lg p-4">
-          <img src="./assets/img/all_product.jpg" alt="organic natural homemade beeswax candle body scrub chapstic lip balm hand sanitizer plantdase natural dyes flowers petals pure cotton calls  all product5" class="w-full">
+        <article class="bg-white border-2 border-teal-500 rounded-lg shadow-lg p-4">
+          <img src="./assets/img/all_product.jpg"
+            alt="organic natural homemade beeswax candle body scrub lip balm hand sanitizer plantbase dyes from petals use raw cotton: product5"
+            class="w-full">
           <div class="text-center p-4">
-            <h3 class="text-xl font-semibold">Product 5</h3>
+            <h2 class="text-xl font-semibold">Product 5</h2>
 
             <a href="#" class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded">
               Learn More
             </a>
           </div>
-        </div>
+        </article>
       </div>
 
       <div class="w-full lg:w-1/3 p-3">
-        <div class="bg-white border-2 border-teal-500 rounded-lg shadow-lg p-4">
-          <img src="./assets/img/products.jpg" alt="organic natural homemade beeswax candle body scrub chapstic lip balm hand sanitizer plantproduct6" class="w-full">
+        <article class="bg-white border-2 border-teal-500 rounded-lg shadow-lg p-4">
+          <img src="./assets/img/products.jpg"
+            alt="organic natural homemade beeswax candle body scrub chapstic lip balm hand sanitizer: product6"
+            class="w-full">
           <div class="text-center p-4">
-            <h3 class="text-xl font-semibold">Product 6</h3>
+            <h2 class="text-xl font-semibold">Product 6</h2>
 
             <a href="#" class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded">
               Learn More
             </a>
           </div>
-        </div>
+        </article>
       </div>
     </div>
-  </div>
+  </main>
 
   <!--footer with nav to socialmedia link placeholders-->
 
-  <div class="bg-green-700">
+  <footer class="bg-green-700">
     <div class="container mx-auto px-4">
       <nav class="flex items-center justify-between flex-wrap bg-green-800 p-6">
         <div class="flex items-center flex-shrink-0 text-white mr-6">
@@ -139,11 +155,11 @@
             <path
               d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z" />
           </svg>
-          <span class="font-semibold text-xl tracking-tight">AW-SOME</span>
+          <h2 class="font-semibold text-xl tracking-tight">AW-SOME</h2>
         </div>
 
-        <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-          <div class="text-sm lg:flex-grow">
+        <tr class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+          <td class="text-sm lg:flex-grow">
             <a href="/facebook" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
               Facebook
             </a>
@@ -153,10 +169,10 @@
             <a href="/contact_me" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
               Contact Me
             </a>
-          </div>
-
-        </div>
+          </td>
+        </tr>
         <!--close out my tags-->
+      </nav>
     </div>
-  </div>
+  </footer>
 </body>
