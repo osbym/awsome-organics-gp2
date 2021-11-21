@@ -2,7 +2,7 @@
 # 🏗️ AW-SOME Organic
 ## Description
     
-This is a shop AW-SOME Organics's first launch website. The site will provide ability to view purchasable products items online. As a owner of a shop, she is  able to showcase the products, create and organize her businesses. Accessability has been considerate in order to reach out to the customers who want to buy her products localy and globaly.
+This is a shop AW-SOME Organics's first launch website. The site will provide ability to view purchasable products items online. 
 
 ## Table of Contents
 
@@ -17,11 +17,11 @@ This is a shop AW-SOME Organics's first launch website. The site will provide ab
 - [Language](#language)
 
 ## Installation
-
+1)Require node modules : npm packages --bcrypt,compression, connect-session-sequelize, dotenv, express-handlebars, express-session, morgan, mysql2, sequelize, sequelize-cli.
 
 
 ## Usage
-
+As a owner of a shop, this application will suport showcasing the products, creating and organizing the businesses. Accessability optimazation has been considerated in order to reach out to the customers who want to buy her products localy and globaly.
 
 
 ## License
@@ -47,4 +47,4 @@ GitHub User Name :  ("https://github.com/osbym')
 
 ![html](https://img.shields.io/badge/language-html-yellow)
 ![JavaScript](https://img.shields.io/badge/language-JavaScript-green)
-![CSS]https://img.shields.io/badge/language-CSS-red
+![CSS](https://img.shields.io/badge/language-CSS-red)
