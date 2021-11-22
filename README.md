@@ -1,5 +1,6 @@
 # group-project-two
 # 🏗️ AW-SOME Organic
+
 ## Description
     
 This is a shop AW-SOME Organics's first launch website. The site will provide ability to view purchasable products items online. 
@@ -15,11 +16,6 @@ This is a shop AW-SOME Organics's first launch website. The site will provide ab
 - [Tests](#tests)
 - [How to ask Question](#Questions)
 - [Language](#language)
-
-## Installation
-1)Require node modules : npm packages --bcrypt,compression, connect-session-sequelize, dotenv, express-handlebars, express-session, morgan, mysql2, sequelize, sequelize-cli.
-
-2)
 
 ## Technologies Used
 
@@ -49,15 +45,39 @@ This is a shop AW-SOME Organics's first launch website. The site will provide ab
 
 - Accessibility: ALT text , ARIA 
 
+## Technical Criteria
+
+Use Node.js and Express.js to create a RESTful API.
+
+Use Handlebars.js as the templating engine.
+
+Use MySQL and the Sequelize ORM for the database.
+
+Have both GET and POST routes for retrieving and adding new data.
+
+Be deployed using Heroku (with data).
+
+Use at least one new library, package, or technology that we haven’t discussed.
+
+Have a polished UI.
+
+Be responsive.
+
+Be interactive (i.e., accept and respond to user input).
+
+Have a folder structure that meets the MVC paradigm.
+
+Include authentication (express-session and cookies).
+
+Protect API keys and sensitive information with environment variables.
+
+Clean repository that meets quality coding standards (file structure, naming conventions, follows best practices for class/id naming conventions, etc).
+
+Have a quality README (with unique name, description, technologies used, screenshot, and link to deployed application).
+
  
-
-
 ## Usage
 As a owner of a shop, this application will suport showcasing the products, creating and organizing the businesses. Accessability optimazation has been considerated in order to reach out to the customers who want to buy her products localy and globaly.
-
-
-## License
-![unlicensed](https://img.shields.io/badge/license-%24%7Blicense%7D-green)
 
 
 ## Collaborators
@@ -70,15 +90,10 @@ As a owner of a shop, this application will suport showcasing the products, crea
 
 - [Kumiko Yamagata](https://kumiyam.github.io/My-Portfolio2/)
 
-## Tests
 
-in prgress
+## Deployed Application 
 
-
-## How to ask questions
-GitHub User Name :  ("https://github.com/osbym')
-
-
+https://osbym.github.io/awsome-organics-gp2/
 
 
 ## Language
