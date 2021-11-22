@@ -2,10 +2,10 @@ const db = require("../models");
 
 //this is the function that is called when the user goes to the /products route
 //it will render the products.handlebars file
-exports.products = (req, res) => {
-  db.Product.findAll({}).then(function (dbProduct) {
+exports.index = (req, res) => {
+  db.Product.findAll({}).then(function (dbProducts) {
     res.render("products", {
-      product: dbProduct,
+      products: dbProducts,
     });
   });
 };
