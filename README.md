@@ -23,11 +23,7 @@ This is a shop AW-SOME Organics's first launch website. The site will provide ab
 
 ## Technologies Used
 
- - HTML5/CSS3
-
-- Javascript/jQuery
- 
-- AJAX
+- HTML5/CSS3
 
 - MySQL
 
@@ -38,6 +34,21 @@ This is a shop AW-SOME Organics's first launch website. The site will provide ab
 - HandlebarsJs
 
 - Express-Handlebars
+
+- Server: Express Node.js      
+
+- ORM Database handling: MySQL /  Sequelize
+ 
+- MVC Design Pattern 
+     
+- Templating engine: Handlebars.js
+     
+- For Authentication: express-session / cookies
+
+- Styling CSS: tailwind css
+
+- Accessibility: ALT text , ARIA 
+
  
 
 
