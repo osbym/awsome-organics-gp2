@@ -85,7 +85,7 @@ Have a quality README (with unique name, description, technologies used, screens
 
 ## Deployed Application 
 
-https://osbym.github.io/awsome-organics-gp2/
+https://evening-reaches-54634.herokuapp.com/
 
 
 ## Languages
