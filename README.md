@@ -1,23 +1,21 @@
-# group-project-two
-# 🏗️ AW-SOME Organic
+# 🏗️ AW-SOME Organics - Group Project 2
+
+## Table of Contents
+
+- [Description](#Description)
+- [Technologies Used](#Technologies)
+- [Technical Criteria](#Technical)
+- [Contributing](#contributing)
+- [How to ask Question](#Questions)
+- [Language](#language)
+- [User Story](#user_story)
 
 ## Description
     
 This is a shop AW-SOME Organics's first launch website. The site will provide ability to view purchasable products items online. 
 
-## Table of Contents
 
-- [Title](#title)
-- [Description](#description)
-- [Installatin](#installation)
-- [Usage](#usage)
-- [Licens](#license)
-- [Contributing](#contributing)
-- [Tests](#tests)
-- [How to ask Question](#Questions)
-- [Language](#language)
-
-## Technologies Used
+## Technologies
 
 - HTML5/CSS3
 
@@ -96,7 +94,7 @@ As a owner of a shop, this application will suport showcasing the products, crea
 https://osbym.github.io/awsome-organics-gp2/
 
 
-## Language
+## Languages
 
 ![html](https://img.shields.io/badge/language-html-yellow)
 ![JavaScript](https://img.shields.io/badge/language-JavaScript-green)
@@ -113,3 +111,17 @@ AS A USER, I would like to set up a profile to receive future notications and up
 I WANT and easy-to-use website in which I can find and search for products.
 
 SO THAT I can learn more about the owners organic products and possibly make a purchase
+
+## Features
+
+![image](https://user-images.githubusercontent.com/87884472/142798748-7b6e81ed-2836-4e8f-b735-e350df7512a8.png)
+
+![image](https://user-images.githubusercontent.com/87884472/142798786-a50edf7e-c60e-4160-8df0-8931af7fe676.png)
+
+![image](https://user-images.githubusercontent.com/87884472/142798815-a6e898a3-1ae1-413f-a49d-e0204428e512.png)
+
+![image](https://user-images.githubusercontent.com/87884472/142798842-2f462f87-8734-484b-8847-b41cdbb40769.png)
+
+
+
+
