@@ -3,7 +3,7 @@ const router = express.Router();
 
 const application_controller = require("../controllers/application_controller");
 
-router.get("/", application_controller.index); //this will be the home page of the application
-// and will be the first page that the user will see
+router.get("/products", application_controller.products); //this is the route for the products page //products is a function in products_controller.js
+//then we will call the products function in products_controller.js
 
 module.exports = router;

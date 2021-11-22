@@ -2,8 +2,8 @@ const db = require("../models");
 
 //this is the users_controller.js file
 exports.registration = (req, res) => {
-  res.render("views/login", {
-    layout: "main",
+  res.render("login", {
+    layout: "main", // this is the layout file that will be used for the registration page (users/registration.ejs)
   });
 };
 // signOut with arrow functions
@@ -14,7 +14,7 @@ exports.signOut = (req, res) => {
 
 //login with arrow functions
 exports.login = (req, res) => {
-  res.render("users/login", {
+  res.render("login", {
     layout: "main",
   });
 };
