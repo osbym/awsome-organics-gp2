@@ -6,7 +6,6 @@
 - [Technologies Used](#Technologies)
 - [Technical Criteria](#Technical)
 - [Contributing](#contributing)
-- [How to ask Question](#Questions)
 - [Language](#language)
 - [User Story](#user_story)
 
