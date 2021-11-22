@@ -12,7 +12,7 @@
 
 ## Description
     
-This is a shop AW-SOME Organics's first launch website. The site will provide ability to view purchasable products items online. 
+As a owner of a shop, this application will suport showcasing the products, creating and organizing the businesses. Accessability optimazation has been considerated in order to reach out to the customers who want to buy her products localy and globaly.
 
 
 ## Technologies
@@ -72,11 +72,6 @@ Protect API keys and sensitive information with environment variables.
 Clean repository that meets quality coding standards (file structure, naming conventions, follows best practices for class/id naming conventions, etc).
 
 Have a quality README (with unique name, description, technologies used, screenshot, and link to deployed application).
-
- 
-## Usage
-As a owner of a shop, this application will suport showcasing the products, creating and organizing the businesses. Accessability optimazation has been considerated in order to reach out to the customers who want to buy her products localy and globaly.
-
 
 ## Collaborators
  
