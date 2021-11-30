@@ -108,6 +108,7 @@ const sess = {
     db: sequelize,
   }),
 };
+//connection to DB and setting up handlebars
 app.use(session(sess));
 const hbs = exphbs.create({ helpers });
 app.engine("handlebars", hbs.engine);
