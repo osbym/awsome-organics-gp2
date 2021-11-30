@@ -1,38 +1,38 @@
-'use strict';
+"use strict";
 
 module.exports = (sequelize, DataTypes) => {
-  const Product = sequelize.define('Product', {
+  const Product = sequelize.define("Product", {
     name: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     category_id: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
     },
     description: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [1]
-      }
+        len: [1],
+      },
     },
     quantity: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
     },
     price: {
       type: DataTypes.DECIMAL,
-      allowNull: false
-    }
+      allowNull: false,
+    },
   });
-  Product.associate = models => {
+  Product.associate = (models) => {
     // associations can be defined here
     Product.hasMany(models.Category, {
       foreignKey: {
-        allowNull: false
-      }
+        allowNull: false,
+      },
     });
-  }
+  };
   return Product;
-}
+};
