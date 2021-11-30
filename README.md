@@ -10,9 +10,8 @@
 - [User Story](#user_story)
 
 ## Description
-    
-As a owner of a shop, this application will suport showcasing the products, creating and organizing the businesses. Accessability optimazation has been considerated in order to reach out to the customers who want to buy her products localy and globaly.
 
+As a owner of a shop, this application will suport showcasing the products, creating and organizing the businesses. Accessability optimazation has been considerated in order to reach out to the customers who want to buy her products localy and globaly.
 
 ## Technologies
 
@@ -28,19 +27,17 @@ As a owner of a shop, this application will suport showcasing the products, crea
 
 - Express-Handlebars
 
-- Server: Express Node.js      
+- Server: Express Node.js
 
-- ORM Database handling: MySQL /  Sequelize
- 
-- MVC Design Pattern 
-     
+- ORM Database handling: MySQL / Sequelize
+
+- MVC Design Pattern
 - Templating engine: Handlebars.js
-     
 - For Authentication: express-session / cookies
 
 - Styling CSS: tailwind css
 
-- Accessibility: ALT text , ARIA 
+- Accessibility: ALT text , ARIA
 
 ## Technical Criteria
 
@@ -73,20 +70,18 @@ Clean repository that meets quality coding standards (file structure, naming con
 Have a quality README (with unique name, description, technologies used, screenshot, and link to deployed application).
 
 ## Collaborators
- 
+
 - [Jordan Hackworth](https://hacatac.github.io/hacPORTFOLIO/)
- 
-- [Marcus Osby](https://osbym.github.io/module2-challenge-portfolio/) 
- 
+
+- [Marcus Osby](https://osbym.github.io/module2-challenge-portfolio/)
+
 - [Robert Vanooyen](https://github.com/rvanooyen/pro-portfolio.git)
 
 - [Kumiko Yamagata](https://kumiyam.github.io/My-Portfolio2/)
 
-
-## Deployed Application 
+## Deployed Application
 
 https://evening-reaches-54634.herokuapp.com/
-
 
 ## Languages
 
@@ -98,7 +93,7 @@ https://evening-reaches-54634.herokuapp.com/
 
 AS A USER, I am interested in viewing a wide range of organic products
 
-AS A USER, I would like to purchase products from an ecommerce site 
+AS A USER, I would like to purchase products from an ecommerce site
 
 AS A USER, I would like to set up a profile to receive future notications and updates
 
@@ -115,8 +110,3 @@ SO THAT I can learn more about the owners organic products and possibly make a p
 ![image](https://user-images.githubusercontent.com/87884472/142800534-9a832f82-3cb6-4419-93d6-fef9c8f692df.png)
 
 ![image](https://user-images.githubusercontent.com/87884472/142798842-2f462f87-8734-484b-8847-b41cdbb40769.png)
-
-
-
-
-

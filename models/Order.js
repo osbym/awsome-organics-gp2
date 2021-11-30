@@ -1,27 +1,27 @@
-'use strict';
+"use strict";
 
 module.exports = (sequelize, DataTypes) => {
-  const Order = sequelize.define('Order', {
+  const Order = sequelize.define("Order", {
     user_id: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
     },
     product_id: {
       type: DataTypes.INTEGER,
-      allowNull: false      
+      allowNull: false,
     },
     amount: {
       type: DataTypes.DECIMAL,
-      allowNull: false
-    }
+      allowNull: false,
+    },
   });
-  Order.associate = models => {
+  Order.associate = (models) => {
     // associations can be defined here
     Order.belongsTo(models.Customer, {
       foreignKey: {
-        allowNull: false
-      }
+        allowNull: false,
+      },
     });
-  }
+  };
   return Order;
-}
+};
