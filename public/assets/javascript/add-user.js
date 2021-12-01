@@ -5,7 +5,7 @@ async function addUserFormHandler(event) {
   const formData = new FormData(form); // will create a FormData object that contains all the data from the form
   const data = {}; // this is the object that will be sent to the server to create a new user object
   formData.forEach((value, key) => (data[key] = value)); // this forEach loop is used to create a new user object from the form data
-  const response = await fetch("/users", {
+  const response = await fetch("/api/users", {
     // this is the fetch request to the server to create a new user object in the database
     method: "POST",
     headers: {
