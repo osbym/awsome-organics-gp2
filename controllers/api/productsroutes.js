@@ -1,10 +1,27 @@
 const router = require("express").Router();
-const { Product } = require("../../models/Product");
+const { Product } = require("../../models/");
 
 //TODO create a route to get all products
 router.get("/", (req, res) => {
-  Product.findAll({})
-    .then((dbProductData) => res.json(dbProductData))
+  //Acces our Product model and run .findAll() method)
+  Product.findAll()
+    .then((dbUserData) => res.json(dbUserData))
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+router.post("/", (req, res) => {
+  Product.create({
+    id: req.body.id,
+    name: req.body.name,
+    category_id: req.body.category_id,
+    description: req.body.description,
+    quantity: req.body.quantity,
+    price: req.body.price,
+  })
+    .then((dbUserData) => res.json(dbUserData))
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
