@@ -1,8 +1,17 @@
 const router = require("express").Router();
-const { Product } = require("../models/");
+const { Product } = require("../../models/Product");
+
+//TODO create a route to get all products
+router.get("/", (req, res) => {
+  Product.findAll({})
+    .then((dbProductData) => res.json(dbProductData))
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
 //TODO create product route 'post route
-
 router.post("/api/products", async (req, res) => {
   try {
     const product = await Product.create(req.body); //this will create a new product

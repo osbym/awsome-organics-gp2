@@ -1,87 +1,65 @@
 {{> boilerplate }}
 {{> nav }}
 
-<!--Sign-up and login form thats side by side with a nice big hero image-->
-<div class="container mx-auto px-4">
+ <div class="container mx-auto px-4">
     <div class="flex flex-wrap">
-        <div class="w-full lg:w-1/2 p-6">
-            <div class="bg-white border-transparent rounded-lg shadow-lg">
-                <div class="bg-green-500 text-white text-center py-5 px-6">
-                    <h2 class="font-bold text-xl">Sign Up</h2>
-                </div>
-                <div class="p-6">
-                    <form class="signup-form">
-                        <div class="flex flex-wrap mb-6">
-                            <div class="w-full md:w-full px-3 mb-6 md:mb-0">
-                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-username" >
-                                Username
-                                </label>
-                                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-username" type="text" placeholder="Jane">
-                            </div>
-                        </div>
-                        <div class="mb-6">
-                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-                            Password
-                            </label>
-                            <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="password" placeholder="******************">
-                        </div>
-                        <div class="flex items-center justify-center">
-                            <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" id="sign-up-btn">
-                            Sign Up
-                            </button>
-                            
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        <div class="w-full lg:w-1/2 p-6">
-            <div class="bg-white border-transparent rounded-lg shadow-lg">
-                <div class="bg-green-500 text-white text-center py-5 px-6">
-                    <h2 class="font-bold text-xl">Login</h2>
-                </div>
-                <div class="p-6">
-                    <form class="login-form">
-                        <div class="flex flex-wrap mb-6">
-                            <div class="w-full md:w-full px-3 mb-6 md:mb-0">
-                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-username">
-                                Username
-                                </label>
-                                <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-first-name" type="text" placeholder="Jane">
-                            </div>
-                        </div>
-                        <div class="mb-6">
-                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-                            Password
-                            </label>
-                            <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="password" placeholder="******************">
-                        </div>
-                        <div class="flex items-center justify-center">
-                            <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
-                            Login
-                            </button>
-
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!--hero section that will show a picture only-->
-<div class="bg-green-700">
-    <div class="container mx-auto px-4">
-      <div class="w-full lg:w-full p-6">
-        <img src="/assets/img/logo.jpg" alt="hero" class="w-full">
+      <div class="w-full md:w-full px-3">
+        <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+          <div class="flex justify-center">
+            <img src="/assets/img/logo.jpg" alt="aw-some logo" class="rounded h-75 w-full">
+          </div>
+          </div>
       </div>
     </div>
-</div>
-<!--script for login.js-->
-<script src="/javascript/login.js"></script>
+  </div>
  
+ <form class="login-form container mx-auto px-4">
+  <div class= "flex flex-wrap">
+  <div class="w-full md:w-full px-3">
+  <div class= "bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="email-login">email:</label>
+    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" id="email-login" />
+    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="password-login">password:</label>
+    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="password" id="password-login" />
+    <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">login</button>
+</div>
+</div>
+</div>
+</form>
+
+<form class="signup-form container mx-auto px-4">
+  <div class= "flex flex-wrap">
+  <div class="w-full md:w-full px-3">
+  <div class= "bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="username-signup">username:</label>
+    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" id="username-signup" />
+    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="email-signup">email:</label>
+    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" id="email-signup" />
+    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="password-signup">password:</label>
+    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="password" id="password-signup" />
+    <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">signup</button>
+  </div>
+</div>
+</div>
+</form> 
+
+
+
+
+
 
 
 {{> footer }}
+<!--script for login.js-->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="/assets/javascript/login.js"></script>
+ 
+
+
+
+
+
+
+
+
 

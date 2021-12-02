@@ -1,50 +1,40 @@
-//get references to our form and button and input using jquery
-//const signupForm = $("#signup-form");
-//const loginForm = $("#login-form");
-
-//async function to handle signup
-async function signupFormHandler(event) {
-  //this is the event handler for the signup form
+function signupFormHandler(event) {
   event.preventDefault();
+  const username = document.querySelector("#username-signup").value.trim();
+  const email = document.querySelector("#email-signup").value.trim();
+  const password = document.querySelector("#password-signup").value.trim();
 
-  const username = document.querySelector("#grid-username").value.trim(); //get the username from the form
-  const password = document.querySelector("#grid-password").value.trim(); // get the password from the form
-
-  if (username && password) {
-    // if both username and password are not empty strings then do the following
-    const response = await fetch("/api/users", {
-      // fetch the api/users endpoint and pass in the username and password
+  if (username && email && password) {
+    //if signup is successful alert user
+    if (true) {
+      window.alert("Signup successful");
+    }
+    fetch("/api/users", {
       method: "post",
       body: JSON.stringify({
         username,
+        email,
         password,
       }),
       headers: { "Content-Type": "application/json" },
+    }).then((response) => {
+      //will redirect to login page
+      //console.log(response); //this will console log the response
     });
-
-    //check if the response status
-    if (response.ok) {
-      console.log("success");
-      alert("New user created you can now log in");
-      document.location.reload();
-    } else {
-      alert(response.statusText);
-    }
   }
 }
 
-//async function to handle login
 async function loginFormHandler(event) {
   event.preventDefault();
 
-  const username = document.querySelector("#username").value.trim();
-  const password = document.querySelector("#password").value.trim();
+  const email = document.querySelector("#email-login").value.trim();
+  const password = document.querySelector("#password-login").value.trim();
 
-  if (username && password) {
+  if (email && password) {
     const response = await fetch("/api/users/login", {
       method: "post",
       body: JSON.stringify({
-        username,
+        email,
         password,
       }),
       headers: { "Content-Type": "application/json" },
@@ -61,6 +51,7 @@ async function loginFormHandler(event) {
 document
   .querySelector(".signup-form")
   .addEventListener("submit", signupFormHandler);
+
 document
   .querySelector(".login-form")
   .addEventListener("submit", loginFormHandler);
