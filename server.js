@@ -1,63 +1,63 @@
 // // Dependencies
 // // ============
-// //const express = require("express");
-// //const path = require("path");
-// const logger = require("morgan");
-// const session = require("express-session");
-// const SequelizeStore = require("connect-session-sequelize")(session.Store);
-// // const passport = require("./config/passport");
-// const config = require("./config/extra-config");
-// const compression = require("compression");
-// const { sequelize } = require("./models");
-// const exphbs = require("express-handlebars");
-// const db = require("./models");
+//const express = require("express");
+//const path = require("path");
+ //const logger = require("morgan");
+ //const session = require("express-session");
+ //const SequelizeStore = require("connect-session-sequelize")(session.Store);
+ //const passport = require("./config/passport");
+ //const config = require("./config/extra-config");
+ //const compression = require("compression");
+ //const { sequelize } = require("./models");
+//const exphbs = require("express-handlebars");
+ //const db = require("./models");
 
 // //put on port 3001 for heroku
-// const PORT = process.env.PORT || 3001;
+////const PORT = process.env.PORT || 3001;
 
 // // Express settings
 // // ================
 
 // // instantiate our app
-// const app = express();
+//const app = express();
 
 // //allow sessions
 // app.use(
-//   session({
-//     secret: config.sessionKey,
-//     cookie: {},
-//     resave: false,
-//     saveUninitialized: true,
-//     store: new SequelizeStore({
-//       db: sequelize,
-//     }),
-//   })
+//session({
+     //secret: config.sessionKey,
+     //cookie: {},
+     //resave: false,
+     //saveUninitialized: true,
+     //store: new SequelizeStore({
+       //db: sequelize,
+     //}),
+   //})
 // );
 
 // // view engine setup
-// //app.set("views", path.join(__dirname, "views"));
+//app.set("views", path.join(__dirname, "views"));
 
-// //set up handlebars
+ //set up handlebars
 
-// app.engine("handlebars", exphbs.engine());
-// app.set("view engine", "handlebars");
-// app.use(require("./controllers/"));
-// // const isAuth = require("./config/middleware/isAuthenticated");
-// // const authCheck = require("./config/middleware/attachAuthenticationStatus");
+//app.engine("handlebars", exphbs.engine());
+ //app.set("view engine", "handlebars");
+ //app.use(require("./controllers/"));
+//const isAuth = require("./config/middleware/isAuthenticated");
+//const authCheck = require("./config/middleware/attachAuthenticationStatus");
 
-// // uncomment after placing your favicon in /public
-// //app.use(favicon(__dirname + '/public/favicon.ico'));
-// app.use(logger("dev"));
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: false }));
-// app.use(express.static(path.join(__dirname, "public")));
+// uncomment after placing your favicon in /public
+ //app.use(favicon(__dirname + '/public/favicon.ico'));
+//app.use(logger("dev"));
+//app.use(express.json());
+ //app.use(express.urlencoded({ extended: false }));
+//app.use(express.static(path.join(__dirname, "public")));
 
-// app.use(
-//   session({ secret: config.sessionKey, resave: true, saveUninitialized: true })
-// );
-// // app.use(passport.initialize());
-// // app.use(passport.session());
-// // app.use(authCheck);
+//app.use(
+ ////// session({ secret: config.sessionKey, resave: true, saveUninitialized: true })
+ //);
+///app.use(passport.initialize());
+//app.use(passport.session());
+//app.use(authCheck);
 
 // app.use(compression());
 
@@ -123,4 +123,4 @@ app.listen(PORT, () => {
 });
 
 //export app
-//module.exports = app;
+module.exports = app;

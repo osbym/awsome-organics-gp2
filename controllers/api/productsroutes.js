@@ -1,7 +1,7 @@
 const router = require("express").Router();
-const { Product } = require("../../models/Product");
+const { Product } = require("../../models/");
 
- feature/loginfunctionality
+ //feature/loginfunctionality
 //TODO create a route to get all products
 router.get("/", (req, res) => {
   Product.findAll({})
@@ -13,11 +13,11 @@ router.get("/", (req, res) => {
 });
 
 //TODO create product route 'post route
-router.post("/api/products", async (req, res) => {
-  try {
-    const product = await Product.create(req.body); //this will create a new product
+//router.post("/api/products", async (req, res) => {
+// try {
+//  const product = await Product.create(req.body); //this will create a new product
 
-=======
+//=======
 //TODO create product route 'post route
 
 router.post("/api/products", async (req, res) => {
@@ -36,8 +36,8 @@ router.put("/api/products/:id", async (req, res) => {
     //then we are trying to update the product with the id that we are trying to update
     //if the product exists then we are going to update it with the new information that we are trying to update it with
     //if the product does not exist then we are going to send a 404 error
-=======
-    const product = await Product.findByPk(req.params.id);
+    //=======
+    //const product = await Product.findByPk(req.params.id);
 
     if (product) {
       const updatedProduct = await product.update(req.body);
@@ -59,14 +59,18 @@ router.delete("/api/products/:id", async (req, res) => {
     if (product) {
       const deletedProduct = await product.destroy();
       res.status(200).send(deletedProduct);
-    } else {
+    } 
+    else {
       res.status(404).send({
         message: "Product not found",
       });
     }
-  } catch (err) {
+  } 
+  catch (err) {
     res.status(400).send(err);
   }
 });
 
 module.exports = router;
+
+  
