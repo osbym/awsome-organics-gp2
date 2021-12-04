@@ -75,10 +75,10 @@ Products.init(
   },
   {
     sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: "products",
+    // timestamps: false, //this will not create the created_at and updated_at columns in the database table
+    // freezeTableName: true,
+    // underscored: true,
+    // modelName: "products",
   }
 );
 
