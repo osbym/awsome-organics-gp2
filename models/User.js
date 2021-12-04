@@ -109,11 +109,11 @@ User.init(
         return updatedUserData;
       },
     },
-    sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: "user",
+    sequelize, //this is to connect to the database
+    timestamps: false, //this is to prevent the default timestamps from being created
+    freezeTableName: true, //this is to prevent sequelize from pluralizing the table name
+    underscored: true, //this is to prevent sequelize from using camelcase
+    modelName: "user", //this will be the table name in the database
   }
 );
 
