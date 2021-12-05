@@ -17,6 +17,10 @@ router.get("/login", (req, res) => {
   res.render("registration");
 });
 
+router.get("/privacy", (req, res) => {
+  res.render("privacy");
+});
+
 //TODO after login
 
 module.exports = router;
