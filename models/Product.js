@@ -1,46 +1,85 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+// "use strict";
 
-// create our User model
-class Product extends Model {}
+// module.exports = (sequelize, DataTypes) => {
+//   const Product = sequelize.define("Product", {
+//     name: {
+//       type: DataTypes.STRING,
+//       allowNull: false,
+//     },
+//     category_id: {
+//       type: DataTypes.INTEGER,
+//       allowNull: false,
+//     },
+//     description: {
+//       type: DataTypes.STRING,
+//       allowNull: false,
+//       validate: {
+//         len: [1],
+//       },
+//     },
+//     quantity: {
+//       type: DataTypes.INTEGER,
+//       allowNull: false,
+//     },
+//     price: {
+//       type: DataTypes.DECIMAL,
+//       allowNull: false,
+//     },
+//   });
+//   Product.associate = (models) => {
+//     // associations can be defined here
+//     Product.hasMany(models.Category, {
+//       foreignKey: {
+//         allowNull: false,
+//       },
+//     });
+//   };
+//   return Product;
+// };
 
-// create fields/columns for User model
-Product.init(
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
+
+class Products extends Model {}
+
+Products.init(
   {
     id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true
+      primaryKey: true, //this will show the id as the primary key in the database table
+      autoIncrement: true,
     },
     name: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     category_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
     description: {
-        type: DataTypes.STRING,
-        allowNull: true
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1],
+      },
     },
     quantity: {
-        type: DataTypes.INTEGER,
-        allowNull: false
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
     price: {
-        type: DataTypes.DECIMAL,
-        allowNull: false
-    }
+      type: DataTypes.DECIMAL,
+      allowNull: false,
+    },
   },
-  {    
+  {
     sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'product'
+    // timestamps: false, //this will not create the created_at and updated_at columns in the database table
+    // freezeTableName: true,
+    // underscored: true,
+    // modelName: "products",
   }
 );
 
-module.exports = Product;
+module.exports = Products;
