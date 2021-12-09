@@ -106,6 +106,9 @@ const sess = {
   saveUninitialized: true,
   store: new SequelizeStore({
     db: sequelize,
+    //if idle time is greater than 30 minutes, the session will be destroyed
+    expiration: 30 * 60 * 1000,
+    
   }),
 };
 //connection to DB and setting up handlebars

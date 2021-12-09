@@ -1,0 +1,33 @@
+<!-- make a page that will import the boilerplate, nav, and footer partials and then show a nice big picture and information about the product thats styled with tailwind -->
+{{> boilerplate }}
+{{> nav }}
+<!-- make a card with an image that displays a short paragraph of the product and pricing styled with tailwind -->
+<div class="flex flex-col items-center justify-center w-full">
+    <div class="text-center w-2/3">
+        <div class="bg-white rounded-lg shadow-lg p-4">
+            <div class="flex flex-col items-center justify-center w-full">
+                <div class="flex flex-col items-center justify-center w-full">
+                    <img class="rounded-full h-64 w-64" src="./assets/img/random1.jpg" alt="">
+                </div>
+                <div class="flex flex-col items-center justify-center w-full">
+                    <h1 class="font-bold text-xl text-center">Chapstick</h1>
+                    <h2 class="font-bold text-xl text-center">$15</h2>
+                    <p class=" font-light text-md text-center w">
+                        I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text”
+                        or double click me to add your own content and make changes to the font. Feel free to drag and
+                        drop me anywhere you like on your page. I’m a great place for you to tell a story and let your
+                        users know a little more about you.
+                    </p>
+                    <!-- make a back shorcut for product page -->
+                    <div class="flex flex-col items-center justify-center w-full">
+                        <a href="/products"
+                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                            Back
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{> footer }}
