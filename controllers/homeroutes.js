@@ -26,6 +26,26 @@ router.get("/chapstick", (req, res) => {
   res.render("chapstick");
 });
 
+router.get("/sanitizer", (req, res) => {
+  res.render("sanitizer");
+})
+
+router.get("/candle", (req, res) => { 
+  res.render("candle");
+})
+
+router.get("/oils", (req, res) => {
+  res.render("oils");
+})
+
+router.get("/moisturizer", (req, res) => {
+  res.render("moisturizer");
+})
+
+router.get("/bundle", (req, res) => {
+  res.render("bundles");
+})
+
 
 //router.get for the a href product 1 inside the productinfo1.handlebars
 
