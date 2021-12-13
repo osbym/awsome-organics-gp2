@@ -12,4 +12,4 @@ async function logout() {
   }
 }
 
-document.querySelector("#logout").addEventListener("click", logout);
+document.querySelector("#logout").addEventListener("click", logout); //is #logout an id or a class? // it is an id

@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-  {{> boilerplate }}
-  <body>
+{{> boilerplate }}
 
- 
-   {{{ body }}}
-    </body>
-    <!-- plugin javascript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<body>
 
-    
-    
+
+  {{{ body }}}
+</body>
+<!-- plugin javascript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+{{#if loggedIn}}
+<script src="/assets/javascript/logout.js"></script>
+{{/if}}
 
 </body>
 
-   
+
 </html>

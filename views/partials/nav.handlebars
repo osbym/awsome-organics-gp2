@@ -25,11 +25,24 @@
         </div>
 
       </div>
-      <div class="flex items-center">
-        <a href="/login"
-          class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Login</a>
 
+      <div class="flex items-center">
+        {{#if session.user}}
+        <button id="logout"
+          class="inline-block text-sm px-4 py-2 ml-3 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Logout</a>
+          {{else}}
+          <a href="/login"
+            class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Login</a>
       </div>
+      {{/if}}
+
+      {{!--
+      <!-- logout button -->
+      <div class="flex items-center" id="logout">
+        <a href="/logout"
+          class="inline-block text-sm px-4 py-2 ml-3 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Logout</a>
+
+      </div> --}}
 
 
     </nav>
