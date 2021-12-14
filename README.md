@@ -81,7 +81,7 @@ Have a quality README (with unique name, description, technologies used, screens
 
 ## Deployed Application
 
-https://evening-reaches-54634.herokuapp.com/
+https://awsomeorganics.herokuapp.com/
 
 ## Languages
 
