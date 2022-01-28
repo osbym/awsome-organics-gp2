@@ -5,7 +5,8 @@ router.get("/", (req, res) => {
   res.render("index");
 });
 //need to add get from product table
-router.get("/products", (req, res) => { // where is /products at in my code ?  it 
+router.get("/products", (req, res) => {
+  // where is /products at in my code ?  it
   res.render("products");
 });
 
@@ -28,29 +29,29 @@ router.get("/chapstick", (req, res) => {
 
 router.get("/sanitizer", (req, res) => {
   res.render("sanitizer");
-})
+});
 
-router.get("/candle", (req, res) => { 
+router.get("/candle", (req, res) => {
   res.render("candle");
-})
+});
 
 router.get("/oils", (req, res) => {
   res.render("oils");
-})
+});
 
 router.get("/moisturizer", (req, res) => {
   res.render("moisturizer");
-})
+});
 
 router.get("/bundle", (req, res) => {
   res.render("bundles");
-})
+});
 
+router.get("/welcomeuser", (req, res) => {
+  res.render("welcomeuser");
+});
 
 //router.get for the a href product 1 inside the productinfo1.handlebars
-
-
-
 
 //TODO after login
 
