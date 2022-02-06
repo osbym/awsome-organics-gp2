@@ -8,8 +8,8 @@ const seedAll = async () => {
   await seedProducts();
   console.log("--------------");
 
-  //   await seedPosts();
-  //   console.log("--------------");
+  await seedProducts();
+  console.log("--------------");
 
   //   await seedComments();
   //   console.log("--------------");

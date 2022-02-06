@@ -1,5 +1,8 @@
 const router = require("express").Router();
 const { Product } = require("../../models/");
+const stripe = require("stripe")(
+  "sk_test_51KGGcjDQw3iOHoMjf3YITBwKINTnXK3bur0cgCPuh60dD993ZmOU4Tqoy33u52gPG3usHBJpeZnvJBHuQtUxRK5O00WkMZpfof"
+);
 
 //TODO create a route to get all products
 router.get("/", (req, res) => {
@@ -79,5 +82,43 @@ router.delete("/:id", async (req, res) => {
     res.status(400).send(err);
   }
 });
+
+router.post("/charge", (req, res) => {
+  const amount = 2500;
+
+  stripe.customers
+    .create({
+      email: req.body.stripeEmail,
+      source: req.body.stripeToken,
+    })
+    .then((customer) =>
+      stripe.charges.create({
+        amount,
+        description: "Test Test Test",
+        currency: "usd",
+        customer: customer.id,
+      })
+    )
+    .then((charge) => res.render("success"));
+});
+
+// router.post("/charge", (req, res) => {
+//   const amount = req.body.amount;
+
+//   stripe.customers
+//     .create({
+//       email: req.body.stripeEmail,
+//       source: req.body.stripeToken,
+//     })
+//     .then((customer) =>
+//       stripe.charges.create({
+//         amount,
+//         description: "Sample Charge",
+//         currency: "usd",
+//         customer: customer.id,
+//       })
+//     )
+//     .then((charge) => res.render("success", { amount }));
+// });
 
 module.exports = router;
