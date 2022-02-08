@@ -37,23 +37,24 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.post("/charge", (req, res) => {
-  const amount = 2500;
-
+  const amount = req.body.amount;
   stripe.customers
     .create({
       email: req.body.stripeEmail,
       source: req.body.stripeToken,
     })
-    .then((customer) =>
+    .then((customer) => {
       stripe.charges.create({
         amount,
-        description: "Test Test Test",
+        description: "Sample Charge",
         currency: "usd",
         customer: customer.id,
-      })
-    )
-    .then((charge) => res.render("success"));
+      });
+
+      res.render("success", { amount });
+    });
 });
+
 app.use(require("./controllers/"));
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}!`);
