@@ -36,6 +36,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
+//for some reason its not taking the req.body from the form here.
+//I can put in a set amount of money and it will work.
+
 app.post("/charge", (req, res) => {
   const amount = req.body.amount;
   stripe.customers
@@ -60,6 +63,3 @@ app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}!`);
   sequelize.sync({ force: false });
 });
-
-//export app
-//module.exports = app;
