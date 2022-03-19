@@ -37,6 +37,6 @@
     "nodemon": "^2.0.15",
     "sequelize": "^6.9.0",
     "sequelize-cli": "^6.3.0",
-    "stripe": "^8.202.0"
+    "stripe": "^8.67.0"
   }
 }

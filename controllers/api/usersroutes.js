@@ -109,11 +109,21 @@ router.post("/login", (req, res) => {
     req.session.save(() => {
       req.session.user_id = dbUserData.id;
       req.session.username = dbUserData.username;
+      req.session.isAdmin = dbUserData.isAdmin; //this line will be used to determine if the user is an admin or not
       req.session.loggedIn = true;
 
       res.json({ user: dbUserData, message: "You are now logged in!" });
     });
   });
+});
+
+//check if user is an admin or not if they are an admin they can see the admin page which will allow them to update the database
+router.get("/admin", (req, res) => {
+  if (req.user.isAdmin) {
+    res.json({ message: "You are an admin!" });
+  } else {
+    res.json({ message: "You are not an admin!" });
+  }
 });
 
 // Export routes for server.js to use.

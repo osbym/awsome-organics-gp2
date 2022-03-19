@@ -92,6 +92,16 @@ User.init(
         len: [4],
       },
     },
+    isAdmin: {
+      //what is this? //basically we can use isAdmin to determine if the user is an admin or not (if they are an admin they can see the admin page) etc
+      //and to check if the user is an admin we can use the isAdmin field as follows:
+      //if (req.user.isAdmin) {
+      //  res.render("admin");
+      //}
+
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
   },
   {
     hooks: {

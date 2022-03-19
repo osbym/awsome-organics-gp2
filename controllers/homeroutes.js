@@ -51,6 +51,11 @@ router.get("/welcomeuser", (req, res) => {
   res.render("welcomeuser");
 });
 
+//admin page
+router.get("/admin", (req, res) => {
+  res.render("admin");
+});
+
 //router.get for the a href product 1 inside the productinfo1.handlebars
 
 //TODO after login
