@@ -47,6 +47,6 @@ const productdata = [
     price: 35,
   },
 ];
-const seedProducts = () => Comment.bulkCreate(productdata);
+const seedProducts = () => Product.bulkCreate(productdata);
 
 module.exports = seedProducts;

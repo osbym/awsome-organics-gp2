@@ -1,104 +1,83 @@
 
-
 {{#if isAdmin}}
 
-    {{#each products}}
-        <div class="product">
-            <h2>{{name}}</h2>
-            <p>{{description}}</p>
-            <p>{{price}}</p>
-            <p>{{stock}}</p>
-            <p>{{category}}</p>
-            <p>{{image}}</p>
-            <p>{{id}}</p>
-            <button class="edit">Edit</button>
-            <button class="delete">Delete</button>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Admin</h1>
         </div>
-    {{/each}}
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Users</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each users}}
+                    <tr>
+                        <td>{{name}}</td>
+                        <td>{{email}}</td>
+                        <td>{{role}}</td>
+                        <td>
+                            <a href="/admin/users/{{id}}/edit" class="btn btn-primary">Edit</a>
+                            <a href="/admin/users/{{id}}/delete" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
 
-    <form action="/admin" method="POST">
-        <input type="text" name="name" placeholder="name">
-        <input type="text" name="description" placeholder="description">
-        <input type="text" name="price" placeholder="price">
-        <input type="text" name="stock" placeholder="stock">
-        <input type="text" name="category" placeholder="category">
-        <input type="text" name="image" placeholder="image">
-        <input type="submit" value="Add Product">
-    </form>
-
-    <form action="/admin" method="DELETE">
-        <input type="text" name="id" placeholder="id">
-        <input type="submit" value="Delete Product">
-    </form>
-
-    <form action="/admin" method="PUT">
-        <input type="text" name="id" placeholder="id">
-        <input type="text" name="name" placeholder="name">
-        <input type="text" name="description" placeholder="description">
-        <input type="text" name="price" placeholder="price">
-        <input type="text" name="stock" placeholder="stock">
-        <input type="text" name="category" placeholder="category">
-        <input type="text" name="image" placeholder="image">
-        <input type="submit" value="Edit Product">  <br>
-    </form>
-
-    <form action="/admin" method="GET">
-        <input type="text" name="id" placeholder="id">
-        <input type="submit" value="Get Product">
-    </form>
-
-    <form action="/admin" method="GET">
-        <input type="text" name="category" placeholder="category">
-        <input type="submit" value="Get Products by Category">
-    </form>
-
-    <form action="/admin" method="GET">
-        <input type="text" name="name" placeholder="name">
-        <input type="submit" value="Get Products by Name">
-    </form>
-
-    <form action="/admin" method="GET">
-        <input type="text" name="price" placeholder="price">
-        <input type="submit" value="Get Products by Price">
-    </form>
-
-    <form action="/admin" method="GET">
-        <input type="text" name="stock" placeholder="stock">
-        <input type="submit" value="Get Products by Stock">
-    </form>
-
-    <form action="/admin" method="GET">
-        <input type="text" name="description" placeholder="description">
-        <input type="submit" value="Get Products by Description">
-    </form>
-
-    <form action="/admin" method="GET">
-        <input type="text" name="image" placeholder="image">
-        <input type="submit" value="Get Products by Image">
-    </form>
-
-    <form action="/admin" method="GET">
-        <input type="text" name="id" placeholder="id">
-        <input type="submit" value="Get Product by ID">
-
-    </form>
-
-    <form action="/admin" method="GET">
-        <input type="text" name="id" placeholder="id">
-        <input type="submit" value="Get Product by ID">
-    </form>
-    
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Products</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each products}}
+                    <tr>
+                        <td>{{name}}</td>
+                        <td>{{price}}</td>
+                        <td>
+                            <a href="/admin/products/{{id}}/edit" class="btn btn-primary">Edit</a>
+                            <a href="/admin/products/{{id}}/delete" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 {{else}}
-    <h1>You are not an admin</h1>
-{{/if}}
 
-{{! Path: views\admin.handlebars }}
+{{/if}}
+    
+    {{! Path: views\admin.handlebars }}
 {{! Language: handlebars }}
 {{! Path: views\admin.handlebars }}
 
 
 
-
-
-
-    
