@@ -24,12 +24,22 @@
             View More Details
           </a>
                         </div>
-                        <div class="flex flex-col items-center justify-center w-full">
-                            <a href="/products"
-                                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                        <form method="POST" action="/cart/{{id}}">
+                          <label for="quantity"></label>
+                          <select class="form-control product-dropdown" id="quantity" name="quantity">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                          </select>
+                          <button class="btn btn-default noPad" type="submit" value="Submit">🛒</button>
+                        </form>
+                        {{!-- <div class="flex flex-col items-center justify-center w-full">
+                            <a href="/cart/{{id}}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
                                 🛒
                             </a>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
