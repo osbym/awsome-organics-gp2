@@ -1,0 +1,53 @@
+{{> nav }}
+{{> boilerplate }}
+
+{{!-- This will be a checkout cart that adds all items that are clicked to it. Should be responsive and have nice styles with tailwindcss --}}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Cart</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Product</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Total</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each cart}}
+                    <tr>
+                        <td>{{name}}</td>
+                        <td>{{price}}</td>
+                        <td>{{quantity}}</td>
+                        <td>{{total}}</td>
+                        <td>
+                            <button class="btn btn-danger" data-id="{{id}}" data-action="remove">Remove</button>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Total: ${{total}}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <button class="btn btn-success" data-action="checkout">Checkout</button>
+        </div>
+    </div>
+</div>
+
+
+{{> footer }}
+

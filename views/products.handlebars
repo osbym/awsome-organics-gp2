@@ -2,38 +2,41 @@
 {{> boilerplate }}
 
 
-//i want to show all the products in the database and will have a view more button that will show more information about the product these should be styled with tailwind css in cards
-{{#each products}}
-<div class="container mx-auto px-4">
-  
-  <div class="flex flex-wrap">
-    <div class="w-full lg:w-1/3 p-3">
-      <div class="bg-white border-2 border-teal-500 rounded-lg shadow-lg p-4">
-        <img src="./assets/img/random.jpg" alt="product1" class="w-full">
-        <div class="text-center p-4">
-          <h3 class="text-xl font-semibold">{{name}}</h3>
-          <p class="text-center">${{price}}</p>
-          <a href="/product/{{id}}" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
-            Learn More
-          </a>
-          <form action="/charge" method="POST">
-            <script
-                src="https://checkout.stripe.com/checkout.js"
-                class="stripe-button"
-                data-key="pk_test_51KGGcjDQw3iOHoMjGmIYfxSZYBPdKjlyNY9C5XexdLbB5BdS68lD6Ittw0vW5Om1b1wBJJvKz5iXxFrloofkboVa00alz32OHF"
-                data-amount="300" 
-                data-name="AWSOME"
-                data-description="Bundle of your choice"
-                data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-                data-locale="auto"> 
 
-            </script>
-  
-        </form>
+
+<container class="" id="products">
+    <div class="flex flex-wrap justify-center">
+        {{#each products}}
+        <div class=" max-w-sm m-8 ">
+            <div class="bg-transparent  rounded-lg shadow-2xl p-4 ">
+                <div class="flex flex-col items-center justify-center w-full">
+                    <div class="flex flex-col items-center justify-center w-full mb-3">
+                        <img class="rounded-full h-64 w-64" src="./assets/img/random1.jpg" alt="">
+                    </div>
+                    <div class="flex flex-col items-center justify-center w-full">
+                        <h1 class="font-bold text-xl text-center text-teal-600">{{name}}</h1>
+                        <h2 class="font-bold text-xl text-center text-teal-600">${{price}} ea</h2>
+                        <p class=" font-light text-md text-center w">
+                            {{!-- {{description}} --}}
+                        </p>
+                        <div class="flex flex-col items-center justify-center w-full">
+                             <a href="/product/{{id}}" class=" font-bold py-2 px-3 block  mb-3 lg:inline-block lg:mt-0 text-white bg-blue-500 hover:bg-blue-700 rounded-full">
+            View More Details
+          </a>
+                        </div>
+                        <div class="flex flex-col items-center justify-center w-full">
+                            <a href="/products"
+                                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                                🛒
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+        {{/each}}
     </div>
-{{/each}}
+</container>
 
 
 
