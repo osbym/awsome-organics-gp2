@@ -1,5 +1,9 @@
 const router = require("express").Router();
-const { Product, User } = require("../models/");
+const { Product, User, Cart } = require("../models/");
+const isAuthenticated = require("../config/middleware/isAuthenticated");
+const { response } = require("express");
+const { request } = require("express");
+
 const stripe = require("stripe")(
   "sk_test_51KGGcjDQw3iOHoMjf3YITBwKINTnXK3bur0cgCPuh60dD993ZmOU4Tqoy33u52gPG3usHBJpeZnvJBHuQtUxRK5O00WkMZpfof"
 );
@@ -43,6 +47,73 @@ router.get("/product/:id", (req, res) => {
     });
 });
 
+//show cart by user id
+router.get("/cart", isAuthenticated, function (req, res) {
+  Cart.findAll({
+    where: {
+      UserId: req.user.id,
+    },
+    include: [Product],
+  })
+    .then(function (cartItems) {
+      res.render("cart", { cartItems, user: req.user });
+    })
+    .catch(function (err) {
+      console.log(err.message);
+      response.send(err);
+    });
+});
+//add new item to cart
+router.post("/cart/:itemId", isAuthenticated, function (req, res) {
+  Cart.create({
+    quantity: req.body.quantity, //this will be the quantity of the product
+    UserId: req.user.id, //this will be the user id
+    ProductId: req.params.id, //this will be the product id from the url
+  })
+    .then(function (addedItem) {
+      res.redirect("/products");
+    })
+    .catch(function (err) {
+      console.log(err.message);
+      response.send(err);
+    });
+});
+//update quantity of item in cart
+router.put("/cart/:itemId", isAuthenticated, function (req, res) {
+  Cart.update(
+    { quantity: request.body.quantity },
+    {
+      where: {
+        UserId: req.user.id,
+        ProductId: req.params.itemId,
+      },
+      include: [Product],
+    }
+  )
+    .then(function (cartItems) {
+      res.redirect("/cart");
+    })
+    .catch(function (err) {
+      console.log(err.message);
+      response.send(err);
+    });
+});
+//delete item from cart
+router.delete("/cart/:itemId", isAuthenticated, function (req, res) {
+  Cart.destroy({
+    where: {
+      UserId: req.user.id,
+      id: req.params.itemId,
+    },
+  })
+    .then(function () {
+      res.redirect("/cart");
+    })
+    .catch(function (err) {
+      console.log(err.message);
+      response.send(err);
+    });
+});
 //get the data-amount from the form in  product.handlebars and pass it in to this post route
 router.post("/charge", (req, res) => {
   const { price, stripeToken } =

@@ -1,27 +1,23 @@
-module.exports = function (sequelize, DataTypes) {
-  const Cart = sequelize.define(
-    "Cart",
-    {
-      quantity: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        validate: {
-          len: [1, 10],
-        },
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
+
+class Cart extends Model {}
+//here I need to define a Cart model that has a quantity field of integer,
+Cart.init(
+  {
+    quantity: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        len: [1, 10],
       },
     },
-    {
-      classMethods: {
-        associate: function (models) {
-          Cart.belongsTo(models.Product, {}),
-            Cart.belongsTo(models.User, {
-              foreignKey: {
-                allowNull: true,
-              },
-            });
-        },
-      },
-    }
-  );
-  return Cart;
-};
+  },
+
+  //then need to add sequelize, and export the model
+  {
+    sequelize,
+  }
+);
+
+module.exports = Cart;
