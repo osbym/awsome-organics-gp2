@@ -1,8 +1,7 @@
 const router = require("express").Router();
 const { Product, User, Cart } = require("../models/");
+const db = require("../models");
 const isAuthenticated = require("../config/middleware/isAuthenticated");
-const { response } = require("express");
-const { request } = require("express");
 
 const stripe = require("stripe")(
   "sk_test_51KGGcjDQw3iOHoMjf3YITBwKINTnXK3bur0cgCPuh60dD993ZmOU4Tqoy33u52gPG3usHBJpeZnvJBHuQtUxRK5O00WkMZpfof"
@@ -11,11 +10,6 @@ const stripe = require("stripe")(
 router.get("/", (req, res) => {
   res.render("index");
 });
-//need to add get from product table
-// router.get("/products", (req, res) => {
-//   // where is /products at in my code ?  it
-//   res.render("products");
-// });
 
 //get all products from database
 router.get("/products", (req, res) => {
@@ -48,58 +42,64 @@ router.get("/product/:id", (req, res) => {
 });
 
 //show cart by user id
-router.get("/cart", isAuthenticated, function (req, res) {
-  Cart.findAll({
+
+router.get("/cart", isAuthenticated, function (request, response) {
+  db.Cart.findAll({
     where: {
-      UserId: req.user.id,
+      UserId: request.user.id,
     },
-    include: [Product],
+    include: [db.Product],
   })
     .then(function (cartItems) {
-      res.render("cart", { cartItems, user: req.user });
+      response.render("cart", { cartItems, user: request.user });
+      // response.json(cartItems);
     })
     .catch(function (err) {
       console.log(err.message);
       response.send(err);
     });
 });
-//add new item to cart
-router.post("/cart/:itemId", isAuthenticated, function (req, res) {
-  Cart.create({
-    quantity: req.body.quantity, //this will be the quantity of the product
-    UserId: req.user.id, //this will be the user id
-    ProductId: req.params.id, //this will be the product id from the url
+
+// add new item to cart
+router.post("/cart/:itemId", isAuthenticated, function (request, response) {
+  db.Cart.create({
+    UserId: request.user.id,
+    ProductId: request.params.itemId,
+    quantity: request.body.quantity,
   })
     .then(function (addedItem) {
+      // response.json(addedItem);
+      response.redirect("/products");
+    })
+    .catch(function (err) {
+      console.log(err.message);
+      response.send(err);
+    });
+});
+
+//update quantity of item in cart
+router.post("cart/:itemId", function (req, res) {
+  Cart.update(
+    {
+      quantity: req.body.quantity,
+    },
+    {
+      where: {
+        id: req.params.itemId,
+      },
+    }
+  )
+    .then(function (cartItem) {
       res.redirect("/products");
     })
     .catch(function (err) {
-      console.log(err.message);
-      response.send(err);
+      console.log(err);
+      res.send(err);
     });
 });
-//update quantity of item in cart
-router.put("/cart/:itemId", isAuthenticated, function (req, res) {
-  Cart.update(
-    { quantity: request.body.quantity },
-    {
-      where: {
-        UserId: req.user.id,
-        ProductId: req.params.itemId,
-      },
-      include: [Product],
-    }
-  )
-    .then(function (cartItems) {
-      res.redirect("/cart");
-    })
-    .catch(function (err) {
-      console.log(err.message);
-      response.send(err);
-    });
-});
+
 //delete item from cart
-router.delete("/cart/:itemId", isAuthenticated, function (req, res) {
+router.delete("/cart/:itemId", function (req, res) {
   Cart.destroy({
     where: {
       UserId: req.user.id,

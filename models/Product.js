@@ -44,17 +44,8 @@ class Products extends Model {}
 
 Products.init(
   {
-    id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true, //this will show the id as the primary key in the database table
-      autoIncrement: true,
-    },
     name: {
       type: DataTypes.STRING,
-      allowNull: false,
-    },
-    category_id: {
-      type: DataTypes.INTEGER,
       allowNull: false,
     },
     description: {
@@ -67,10 +58,16 @@ Products.init(
     quantity: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      validate: {},
     },
     price: {
       type: DataTypes.DECIMAL,
       allowNull: false,
+    },
+    img: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {},
     },
   },
   {

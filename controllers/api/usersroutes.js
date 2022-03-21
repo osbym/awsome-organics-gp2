@@ -1,6 +1,49 @@
 const router = require("express").Router();
 const { User } = require("../../models/");
 
+//POST route /api/users/ that creates a new user and creates a session for that user
+router.post("/signup", (req, res) => {
+  User.create(req.body)
+
+    .then((user) => {
+      req.login(user, (err) => {
+        if (err) {
+          return res.status(500).json({
+            message: "Error while creating session",
+          });
+        }
+        return res.status(200).json(user);
+      });
+    })
+    .catch((err) => {
+      res.status(500).json({
+        message: "Error while creating user",
+      });
+    });
+});
+
+//POST route to /api/users/login that logs in a user that was previously created and creates a session for that user
+router.post("/login", (req, res) => {
+  //destrucre the User model
+  const { email, pwd } = req.body;
+
+  //create a new user
+  User.findOne({
+    where: {
+      email,
+      pwd,
+    },
+  })
+    .then((dbUserData) => {
+      //if successful, send back the user data
+      res.json(dbUserData);
+    })
+    .catch((err) => {
+      //if error, send back the error
+      res.json(err);
+    });
+});
+
 // GET /api/users
 router.get("/", (req, res) => {
   //Acces our User model and run .findAll() method)
@@ -85,35 +128,6 @@ router.delete("/:id", (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
-});
-
-router.post("/login", (req, res) => {
-  // expects {email: 'lernantino@gmail.com', password: 'password1234'}
-  User.findOne({
-    where: {
-      email: req.body.email,
-    },
-  }).then((dbUserData) => {
-    if (!dbUserData) {
-      res.status(400).json({ message: "No user with that email address!" });
-      return;
-    }
-
-    const validPassword = dbUserData.checkPassword(req.body.password);
-
-    if (!validPassword) {
-      res.status(400).json({ message: "Incorrect password!" });
-      return;
-    }
-
-    req.session.save(() => {
-      req.session.user_id = dbUserData.id;
-      req.session.username = dbUserData.username;
-      req.session.loggedIn = true;
-
-      res.json({ user: dbUserData, message: "You are now logged in!" });
-    });
-  });
 });
 
 // /admin route to check if the user that is logged in is an admin or not (if they are an admin, they can see the admin page)

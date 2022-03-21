@@ -60,22 +60,22 @@ const sequelize = require("../config/connection");
 class User extends Model {
   // set up method to run on instance data (per user) to check password
   checkPassword(loginPw) {
-    return bcrypt.compareSync(loginPw, this.password);
+    return bcrypt.compareSync(loginPw, this.pwd);
   }
 }
 
 // create fields/columns for User model
 User.init(
   {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-    username: {
+    firstName: {
       type: DataTypes.STRING,
       allowNull: false,
+      validate: {},
+    },
+    lastName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {},
     },
     email: {
       type: DataTypes.STRING,
@@ -85,13 +85,14 @@ User.init(
         isEmail: true,
       },
     },
-    password: {
+    pwd: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [4],
       },
     },
+
     role: {
       type: DataTypes.ENUM("user", "admin"),
       defaultValue: "user",
@@ -102,15 +103,12 @@ User.init(
     hooks: {
       // set up beforeCreate lifecycle "hook" functionality
       async beforeCreate(newUserData) {
-        newUserData.password = await bcrypt.hash(newUserData.password, 10);
+        newUserData.pwd = await bcrypt.hash(newUserData.pwd, 10);
         return newUserData;
       },
 
       async beforeUpdate(updatedUserData) {
-        updatedUserData.password = await bcrypt.hash(
-          updatedUserData.password,
-          10
-        );
+        updatedUserData.pwd = await bcrypt.hash(updatedUserData.pwd, 10);
         return updatedUserData;
       },
     },
@@ -118,7 +116,7 @@ User.init(
     timestamps: false, //this is to prevent the default timestamps from being created
     freezeTableName: true, //this is to prevent sequelize from pluralizing the table name
     underscored: true, //this is to prevent sequelize from using camelcase
-    modelName: "user", //this will be the table name in the database
+    modelName: "User", //this will be the table name in the database
   }
 );
 
