@@ -131,6 +131,51 @@ router.post("/charge", (req, res) => {
     .then((charge) => res.render("success"));
 });
 
+//route for signup a new user after successful registration then redirect to products page
+router.post("/signup", (req, res) => {
+  db.User.create({
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email,
+    pwd: req.body.pwd,
+  })
+    .then((user) => {
+      res.redirect("/");
+      req.session.userId = user.id;
+      // res.json(user);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.send(err);
+    });
+});
+
+//route for login
+router.post("/login", (req, res) => {
+  db.User.findOne({
+    where: {
+      email: req.body.email,
+    },
+  })
+    .then((user) => {
+      if (user) {
+        if (user.pwd === req.body.pwd) {
+          req.session.userId = user.id;
+          // res.redirect("/");
+        } else {
+          //window.alert("Incorrect password");
+          window.alert("Incorrect password");
+        }
+      } else {
+        res.send("User not found");
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+      res.send(err);
+    });
+});
+
 router.get("/contact_me", (req, res) => {
   res.render("contact");
 });

@@ -1,48 +1,54 @@
 const router = require("express").Router();
 const { User } = require("../../models/");
 
-//POST route /api/users/ that creates a new user and creates a session for that user
-router.post("/signup", (req, res) => {
-  User.create(req.body)
+//POST route /api/users/signup that creates a new user and creates a session for that user
+// router.post("/signup", (req, res) => {
+//   User.create({
+//     firstName: req.body.firstName,
+//     lastName: req.body.lastName,
+//     email: req.body.email,
+//     pwd: req.body.pwd,
+//   })
+//     .then((dbUserData) => {
+//       req.session.userId = dbUserData.id;
+//       res.json(dbUserData);
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//       res.status(500).json(err);
+//     });
+// });
 
-    .then((user) => {
-      req.login(user, (err) => {
-        if (err) {
-          return res.status(500).json({
-            message: "Error while creating session",
-          });
-        }
-        return res.status(200).json(user);
-      });
-    })
-    .catch((err) => {
-      res.status(500).json({
-        message: "Error while creating user",
-      });
-    });
-});
+//POST route to /api/users/login that logs in a user and creates a session + redirects to / and shows message
+// router.post("/login", (req, res) => {
+//   User.findOne({
+//     where: {
+//       email: req.body.email,
+//     },
+//   })
 
-//POST route to /api/users/login that logs in a user that was previously created and creates a session for that user
-router.post("/login", (req, res) => {
-  //destrucre the User model
-  const { email, pwd } = req.body;
-
-  //create a new user
-  User.findOne({
-    where: {
-      email,
-      pwd,
-    },
-  })
-    .then((dbUserData) => {
-      //if successful, send back the user data
-      res.json(dbUserData);
-    })
-    .catch((err) => {
-      //if error, send back the error
-      res.json(err);
-    });
-});
+//     .then((dbUserData) => {
+//       if (!dbUserData) {
+//         res.status(400).json({ message: "No user with that email address!" });
+//         return;
+//       }
+//       //if the user is found, compare the password
+//       const validPassword = dbUserData.checkPassword(req.body.pwd);
+//       if (!validPassword) {
+//         res.status(400).json({ message: "Incorrect password!" });
+//         return;
+//       }
+//       //if the password is correct, create a session
+//       req.session.userId = dbUserData.id;
+//       res.json(dbUserData);
+//       //return a success message
+//       res.status(200).json({ message: "You are now logged in!" });
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//       res.status(500).json(err);
+//     });
+// });
 
 // GET /api/users
 router.get("/", (req, res) => {
