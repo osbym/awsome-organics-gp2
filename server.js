@@ -32,10 +32,10 @@ const hbs = exphbs.create({ helpers });
 
 app.engine("handlebars", hbs.engine); // sets up handlebars
 app.set("view engine", "handlebars"); //sets up handlebars
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false })); //this is for parsing the body of the request extended: false means that it will only parse the body of the request as a string
 app.use(express.static(path.join(__dirname, "public")));
 
 //for some reason its not taking the req.body from the form here.
