@@ -1,6 +1,6 @@
 const seedProducts = require("./product-seeds");
 // const seedUsers = require("./user-seeds");
-const seedCart = require("./cart-seeds");
+// const seedCart = require("./cart-seeds");
 
 const sequelize = require("../config/connection");
 
