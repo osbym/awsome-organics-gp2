@@ -2,11 +2,18 @@
   "name": "awsome-organics-gp2",
   "version": "1.0.0",
   "description": "Ecom App For A Client",
-  "main": "postcss.config.js",
+  "main": "postcss.config.js", 
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "seeds": "node seeds/index.js"
+  },
+  "keywords": [
+    "example",
+    "heroku"
+  ],
+  "engines": {
+    "node": "16.14.2"
   },
   "repository": {
     "type": "git",
