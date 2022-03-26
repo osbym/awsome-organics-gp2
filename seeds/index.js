@@ -10,8 +10,8 @@ const seedAll = async () => {
   await seedProducts();
   console.log("--------------");
 
-  await seedCart();
-  console.log("--------------");
+  // await seedCart();
+  // console.log("--------------");
 
   // await seedUsers();
   // console.log("--------------");
