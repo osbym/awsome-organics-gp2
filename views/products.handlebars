@@ -3,51 +3,48 @@
 
 
 
-
-<container class="" id="products">
-    <div class="flex flex-wrap justify-center">
+<div class="container mx-auto pt-10 pb-10 ">
+    <div class="flex flex-wrap justify-center ">
         {{#each products}}
-        <div class=" max-w-sm m-8 ">
-            <div class="bg-transparent  rounded-lg shadow-2xl p-4 ">
-                <div class="flex flex-col items-center justify-center w-full">
-                    <div class="flex flex-col items-center justify-center w-full mb-3">
-                        <img class="rounded-full h-64 w-64" src="./assets/img/random1.jpg" alt="">
-                    </div>
-                    <div class="flex flex-col items-center justify-center w-full">
-                        <h1 class="font-bold text-xl text-center text-teal-600">{{name}}</h1>
-                        <h2 class="font-bold text-xl text-center text-teal-600">${{price}} ea</h2>
-                        <p class=" font-light text-md text-center w">
-                            {{!-- {{description}} --}}
-                        </p>
-                        <div class="flex flex-col items-center justify-center w-full">
-                             <a href="/product/{{id}}" class=" font-bold py-2 px-3 block  mb-3 lg:inline-block lg:mt-0 text-white bg-blue-500 hover:bg-blue-700 rounded-full">
-            View More Details
-          </a>
-                        </div>
-                        <form method="POST" action="/cart/{{id}}">
-                          <label for="quantity"></label>
-                          <select class="form-control product-dropdown" id="quantity" name="quantity">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                          </select>
-                          <button class="btn btn-default noPad" type="submit" value="Submit">🛒</button>
-                        </form>
-                        {{!-- <div class="flex flex-col items-center justify-center w-full">
-                            <a href="/cart/{{id}}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
-                                🛒
-                            </a>
-                        </div> --}}
-                    </div>
+        <div class="w-full md:w-1/2 lg:w-1/3 p-4" >
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden border-2">
+                <img class=" pt-10 p-10 "  src="./assets/img/random1.jpg" alt="">
+                <div class="px-6 py-4">
+                    <div class="font-bold text-xl mb-2 text-center text-teal-600">{{ name }}</div>
+                    <p class="text-skyblue-900 text-base font-bold text-center">{{ description }}</p>
                 </div>
+                <div class="px-6 py-4 ">
+                    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">$ {{ price }} ea</span>
+                    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">I've got {{ quantity }} in stock!</span>
+                </div>
+
+                {{!-- quantity to buy --}}
+                <div class="px-6 py-4">
+                    <div class="flex justify-center">
+                        <div class="w-1/2">
+                            <input type="number" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded-full w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-teal-500" id="quantity" min="1" max="{{ quantity }}" value="1">
+                        </div>
+                        <div class="w-1/2">
+                            <button class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" id="add-to-cart">Add to cart</button>
+                        </div>
+                    </div>
+                    </div>
+            
+                    
+
             </div>
         </div>
         {{/each}}
     </div>
-</container>
-
-
+</div>
 
 {{> footer }}
+
+
+
+
+
+
+
+
+

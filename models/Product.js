@@ -66,7 +66,7 @@ Products.init(
     },
     img: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       validate: {},
     },
   },
