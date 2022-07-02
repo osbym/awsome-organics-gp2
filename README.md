@@ -15,7 +15,7 @@ As a owner of a shop, this application will suport showcasing the products, crea
 
 ## Technologies
 
-- HTML5/CSS3
+- Server Side Rendering
 
 - MySQL
 
